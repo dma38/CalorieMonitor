@@ -22,7 +22,8 @@
         <activity android:name=".DetailActivity" />
         <activity android:name=".UpdateDetailActivity" />
         <activity android:name=".ItemDetailActivity" />
-        <activity android:name=".BMIReportActivity"></activity>
+        <activity android:name=".BMIReportActivity" />
+        <activity android:name=".CalorieHelperActivity"></activity>
     </application>
 
 </manifest>

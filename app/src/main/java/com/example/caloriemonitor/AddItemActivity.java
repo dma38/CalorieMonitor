@@ -33,6 +33,7 @@ public class AddItemActivity extends AppCompatActivity {
     EditText etFoodItemQuantity;
     Spinner spinnerMealType;
     EditText etFoodItemNotes;
+    int REQUEST_CODE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +128,14 @@ public class AddItemActivity extends AppCompatActivity {
                     startActivity(i);
                 }
 
+            }
+        });
+
+        btnCalorieHelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(AddItemActivity.this,CalorieHelperActivity.class);
+                startActivityForResult(i, REQUEST_CODE);
             }
         });
     }

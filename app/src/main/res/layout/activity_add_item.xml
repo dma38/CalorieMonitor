@@ -53,15 +53,14 @@
         android:id="@+id/btnCalorieHelper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/etFoodItemCalorie"
-        android:layout_below="@+id/etFoodItemCalorie"
         android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/textView14"
         android:text="Wanna search calories?"
         android:textAllCaps="false"
         android:textSize="12sp"
         tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="224dp" />
+        tools:layout_editor_absoluteY="224dp"
+        android:layout_below="@+id/etFoodItemCalorie"
+        android:layout_alignEnd="@+id/etFoodItemCalorie" />
 
     <TextView
         android:id="@+id/textView17"
