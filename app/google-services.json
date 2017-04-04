@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "781365405129",
+    "firebase_url": "https://caloriemonitor-2cf10.firebaseio.com",
+    "project_id": "caloriemonitor-2cf10",
+    "storage_bucket": "caloriemonitor-2cf10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781365405129:android:7e3025da74a544b4",
+        "android_client_info": {
+          "package_name": "com.example.caloriemonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781365405129-tajko6nkvq03ams6rlrkop8uraudq3ef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caloriemonitor",
+            "certificate_hash": "778e8456294b0ecc5e5b665f70cbd4f0239a131e"
+          }
+        },
+        {
+          "client_id": "781365405129-83qnglc8td52a49d89i4b0ic728937qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy7F7Gzt2DAfuenVurzjEyNcH_qY35QcA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781365405129-83qnglc8td52a49d89i4b0ic728937qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

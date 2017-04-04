@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.caloriemonitor.BMIReportActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="BMI and  Daily Calorie Needs Report"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="26dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/txtSummaryBMI"
+            android:layout_width="317dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="15dp"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="37dp"
+            tools:layout_editor_absoluteY="72dp"
+            android:layout_below="@+id/btnRetakeTest"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textViewd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtSummaryBMI"
+            android:layout_below="@+id/txtSummaryBMI"
+            android:layout_marginTop="27dp"
+            android:text="Your BMI:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtReportBMI"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textViewd"
+            android:layout_alignBottom="@+id/textViewd"
+            android:layout_alignEnd="@+id/txtSummaryBMI"
+            android:text="TextView"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/txtSummaryBMR"
+            android:layout_width="317dp"
+            android:layout_height="135dp"
+            android:layout_alignStart="@+id/textViewd"
+            android:layout_below="@+id/textViewd"
+            android:layout_marginTop="83dp"
+            android:text="TextView"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtSummaryBMR"
+            android:layout_below="@+id/txtSummaryBMR"
+            android:layout_marginTop="20dp"
+            android:text="Your BMR:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtReportBMR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView16"
+            android:layout_alignEnd="@+id/txtSummaryBMR"
+            android:layout_alignStart="@+id/txtReportBMI"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/divider1"
+            android:layout_below="@+id/txtSummaryBMI"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/divider1"
+            android:layout_below="@+id/txtSummaryBMR"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtSummaryExpenditure"
+            android:layout_width="317dp"
+            android:layout_height="135dp"
+            android:layout_alignStart="@+id/textView16"
+            android:layout_below="@+id/textView16"
+            android:layout_marginTop="76dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total energy expenditure:"
+            android:textSize="18sp"
+            android:layout_alignBaseline="@+id/txtReportExpenditure"
+            android:layout_alignBottom="@+id/txtReportExpenditure"
+            android:layout_alignStart="@+id/txtSummaryExpenditure" />
+
+        <TextView
+            android:id="@+id/txtReportExpenditure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="34dp"
+            android:layout_below="@+id/txtSummaryExpenditure"
+            android:layout_toEndOf="@+id/textView19"
+            android:layout_marginStart="13dp" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/divider1"
+            android:layout_below="@+id/txtSummaryExpenditure"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView7"
+            android:layout_centerHorizontal="true"
+            android:text="Calorie Intake Recommendations"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView10"
+            android:layout_below="@+id/imageView7"
+            android:layout_marginTop="18dp"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/divider1"
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/etCustomizedCalorie"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView22"
+            android:layout_below="@+id/textView22"
+            android:layout_marginTop="20dp"
+            android:text="Maintenance"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtMantenanceCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:layout_alignBaseline="@+id/textView23"
+            android:layout_alignBottom="@+id/textView23"
+            android:layout_alignEnd="@+id/textView21" />
+
+        <Button
+            android:id="@+id/btnMantenancePlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtMantenanceCalories"
+            android:layout_below="@+id/textView23"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/textViewd"
+            android:text="Use mantenance as my plan!"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView23"
+            android:layout_below="@+id/btnMantenancePlan"
+            android:layout_marginTop="56dp"
+            android:text="Fat Loss (1lbs per week)"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtFatLossCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:layout_alignBaseline="@+id/textView25"
+            android:layout_alignBottom="@+id/textView25"
+            android:layout_alignStart="@+id/txtMantenanceCalories" />
+
+        <Button
+            android:id="@+id/btnFatLossPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnMantenancePlan"
+            android:layout_alignStart="@+id/btnMantenancePlan"
+            android:layout_below="@+id/txtFatLossCalories"
+            android:text="Use Fat Loss as my plan!"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView25"
+            android:layout_below="@+id/btnFatLossPlan"
+            android:layout_marginTop="57dp"
+            android:text="Fat Loss (2lbs per week)"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtExtremeCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:layout_above="@+id/btnExtremePlan"
+            android:layout_alignStart="@+id/txtFatLossCalories" />
+
+        <Button
+            android:id="@+id/btnExtremePlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnFatLossPlan"
+            android:layout_alignStart="@+id/btnFatLossPlan"
+            android:layout_below="@+id/textView27"
+            android:text="Use Extreme fat loss as my plan!"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView27"
+            android:layout_below="@+id/btnExtremePlan"
+            android:layout_marginTop="60dp"
+            android:text="Weight Gain (1lbs per week)"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtWeightGainCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:layout_above="@+id/btnWeightGainPlan"
+            android:layout_alignStart="@+id/txtExtremeCalories" />
+
+        <Button
+            android:id="@+id/btnWeightGainPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnExtremePlan"
+            android:layout_alignStart="@+id/btnExtremePlan"
+            android:layout_below="@+id/textView29"
+            android:text="Use Weight Gain as my plan!"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView29"
+            android:layout_below="@+id/btnWeightGainPlan"
+            android:layout_marginTop="55dp"
+            android:text="You can also customize your caloric intake plan:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/etCustomizedCalorie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/txtSummaryExpenditure"
+            android:layout_below="@+id/textView11"
+            android:ems="10"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/btnCustomizedPlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Use this number as my plan!"
+            android:textAllCaps="false"
+            android:layout_below="@+id/etCustomizedCalorie"
+            android:layout_alignEnd="@+id/btnWeightGainPlan"
+            android:layout_alignStart="@+id/btnWeightGainPlan" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* All results are in calories (kcal)"
+            android:textSize="12sp"
+            android:layout_alignBottom="@+id/imageView5"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="25dp" />
+
+        <Button
+            android:id="@+id/btnRetakeTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:text="Retake test"
+            android:textSize="12sp"
+            android:layout_below="@+id/textView10"
+            android:layout_alignEnd="@+id/textView10" />
+
+        <Button
+            android:id="@+id/btnBackToMainReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtSummaryBMI"
+            android:layout_alignStart="@+id/textView10"
+            android:text="Back to Main"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnBackToMain2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView23"
+            android:layout_below="@+id/btnCustomizedPlan"
+            android:layout_marginTop="18dp"
+            android:layout_toStartOf="@+id/btnCustomizedPlan"
+            android:text="Back to Main"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btnRetakeTest2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/etCustomizedCalorie"
+            android:layout_alignTop="@+id/btnBackToMain2"
+            android:text="Retake Test"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.caloriemonitor.AddItemActivity">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/etFoodItemName"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_marginTop="46dp"
+        android:text="What did you eat/drink? (1 item, e.g. bread, orange) &#42;"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <EditText
+        android:id="@+id/etFoodItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="103dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignStart="@+id/etFoodItemCalorie" />
+
+    <Spinner
+        android:id="@+id/spinnerMealType"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="137dp"
+        tools:layout_editor_absoluteY="344dp"
+        android:layout_marginBottom="13dp"
+        android:layout_above="@+id/btnFoodItemAdd"
+        android:layout_alignEnd="@+id/etFoodItemNotes" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinnerMealType"
+        android:layout_alignStart="@+id/textView20"
+        android:text="I had it as ... &#42;"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="314dp" />
+
+    <Button
+        android:id="@+id/btnCalorieHelper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/etFoodItemCalorie"
+        android:layout_below="@+id/etFoodItemCalorie"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/textView14"
+        android:text="Wanna search calories?"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etFoodItemName"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="25dp"
+        android:text="Calories &#42;"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <EditText
+        android:id="@+id/etFoodItemCalorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@+id/textView18"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_centerVertical="true"
+        android:text="Quantity &#42;" />
+
+    <EditText
+        android:id="@+id/etFoodItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnCalorieHelper"
+        android:layout_alignTop="@+id/textView18"
+        android:ems="10"
+        android:inputType="number"
+        android:text="1"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/btnFoodItemAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to my record"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/spinnerMealType"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView18"
+        android:layout_below="@+id/etFoodItemQuantity"
+        android:layout_marginTop="34dp"
+        android:text="Notes" />
+
+    <EditText
+        android:id="@+id/etFoodItemNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/textView20"
+        android:layout_alignStart="@+id/etFoodItemQuantity" />
+
+</RelativeLayout>
