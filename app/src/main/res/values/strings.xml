@@ -67,4 +67,28 @@
     <string name="Moderately_active_explain">Exercising moderately and/or play sports 3 to 5 days</string>
     <string name="Very_active_explain">Strenuous sports or hard exercise 6 to 7 days a week</string>
     <string name="Extra_active_explain">Very physically challenging jobs or exercise, such as 2-a-day workouts</string>
+
+    <string-array name="colors_array">
+        <item>Pink</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Default</item>
+    </string-array>
+    <string-array name="fields_array">
+        <item>Publication Date</item>
+        <item>Description</item>
+        <item>Link</item>
+    </string-array>
+    <string-array name="feeds_array">
+        <item>Art</item>
+        <item>Life</item>
+        <item>DIY</item>
+    </string-array>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="change_feeds">Change feeds</string>
+    <string name="sciencedaily">Science Daily</string>
+    <string name="outside_feed">Outside Magazine: Fitness</string>
+    <string name="DIY">DIY</string>
+    <string name="refresh">Refresh</string>
 </resources>

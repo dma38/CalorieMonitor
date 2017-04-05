@@ -23,7 +23,9 @@
         <activity android:name=".UpdateDetailActivity" />
         <activity android:name=".ItemDetailActivity" />
         <activity android:name=".BMIReportActivity" />
-        <activity android:name=".CalorieHelperActivity"></activity>
+        <activity android:name=".CalorieHelperActivity" />
+        <activity android:name=".RSSDetailsActivity" />
+        <activity android:name=".RSSActivity"></activity>
     </application>
 
 </manifest>

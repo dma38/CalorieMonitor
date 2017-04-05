@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
+
+    <item android:id="@+id/change_feeds"
+        android:title="@string/change_feeds">
+        <menu>
+            <item android:id="@+id/sciencedaily"
+                android:title="@string/sciencedaily" />
+            <item android:id="@+id/outside_feed"
+                android:title="@string/outside_feed" />
+        </menu>
+
+    </item>
+
+
+    <item android:id="@+id/refresh"
+    android:title="@string/refresh"
+    android:orderInCategory="99"
+    android:showAsAction="never"/>
+</menu>
