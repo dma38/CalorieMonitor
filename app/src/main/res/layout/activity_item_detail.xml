@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.caloriemonitor.ItemDetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Name:"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="62dp"
+        android:layout_marginTop="59dp"
+        android:layout_marginStart="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/txtItemDetailName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="62dp"
+        android:layout_marginStart="39dp"
+        android:layout_alignBaseline="@+id/textView15"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_toEndOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="54dp"
+        android:text="Calories:"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/txtItemDetailCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtItemDetailName"
+        android:layout_alignTop="@+id/textView24"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView24"
+        android:layout_below="@+id/textView24"
+        android:layout_marginTop="66dp"
+        android:text="Quantity:" />
+
+    <TextView
+        android:id="@+id/txtItemDetailQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtItemDetailCalories"
+        android:layout_alignTop="@+id/textView30"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView30"
+        android:layout_below="@+id/textView30"
+        android:layout_marginTop="69dp"
+        android:text="You had it as:" />
+
+    <TextView
+        android:id="@+id/txtItemDetailMealType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_alignStart="@+id/txtItemDetailQuantity"
+        android:layout_alignTop="@+id/textView32"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnItemDetailDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:text="Delete this record"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txtItemDetailMealType"
+        android:layout_marginStart="19dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Each"
+        android:layout_alignBaseline="@+id/txtItemDetailCalories"
+        android:layout_alignBottom="@+id/txtItemDetailCalories"
+        android:layout_toEndOf="@+id/txtItemDetailCalories"
+        android:layout_marginStart="42dp" />
+</RelativeLayout>

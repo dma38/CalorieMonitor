@@ -80,11 +80,11 @@ public class DetailActivity extends AppCompatActivity {
         dayMealIdRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child("sDate").getValue()!= null  && dataSnapshot.child("notes").getValue()!= null)
+                if(dataSnapshot.child("sDate").getValue()!= null)
                 {
 
                     txtDetailName.setText("What You Ate on  " + dataSnapshot.child("sDate").getValue().toString() + "\n               & Total Calories Summary");
-                    txtDetailProgram.setText(dataSnapshot.child("notes").getValue().toString());
+
                 }
 
             }
@@ -224,6 +224,7 @@ public class DetailActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent = new Intent(DetailActivity.this, ItemDetailActivity.class);
+                        intent.putExtra("mealItemId", mealItemId.get(i));
                         startActivity(intent);
                     }
                 });
@@ -236,11 +237,11 @@ public class DetailActivity extends AppCompatActivity {
 
                 if(totalCalories <= maxCalorie)
                 {
-                    txtLeft.setText("You can still eat " + (maxCalorie-totalCalories) +" kcals today.");
+                    txtLeft.setText("You can still eat " + Math.round((maxCalorie-totalCalories)) +" kcals today.");
                 }
                 else
                 {
-                    txtLeft.setText("You have eaten " + (totalCalories - maxCalorie) +" kcals more than the limit today.");
+                    txtLeft.setText("You have eaten " + Math.round((totalCalories - maxCalorie)) +" kcals more than the limit today.");
                 }
 
             }

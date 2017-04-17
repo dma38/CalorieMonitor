@@ -64,19 +64,25 @@ public class MealHistoryActivity extends AppCompatActivity {
                 for (DataSnapshot daymeal : dataSnapshot.child("dayMeals").getChildren()) {
                     float totalCalories =0;
                     for (DataSnapshot mealItemIterator : dataSnapshot.child("mealItems").getChildren()){
+                        int quantity = 0;
+                        if(mealItemIterator.child("quantity").getValue() != null) {
+                            quantity = Integer.parseInt(mealItemIterator.child("quantity").getValue().toString());
+                        }
                         float calories = Float.parseFloat(mealItemIterator.child("calories").getValue().toString());
                         if(mealItemIterator.child("dayMealId").getValue() != null)
                         {
                             if(mealItemIterator.child("dayMealId").getValue().toString().matches(daymeal.getKey()))
                             {
-                                totalCalories += calories;
+                                totalCalories += calories * quantity;
                             }
                         }
 
 
                     }
-                        dayMealArrayList.add(new DayMeal(daymeal.child("sDate").getValue().toString(), daymeal.child("notes").getValue().toString(),totalCalories));
+                    if(daymeal.child("sDate").getValue()!=null && daymeal.child("notes") !=null) {
+                        dayMealArrayList.add(new DayMeal(daymeal.child("sDate").getValue().toString(), daymeal.child("notes").getValue().toString(), totalCalories));
                         dayMealIdString.add(daymeal.getKey());
+                    }
 
                 }
 
@@ -156,7 +162,7 @@ public class MealHistoryActivity extends AppCompatActivity {
                     tt.setText(o.getsDate());
                 }
                 if (bt != null) {
-                    bt.setText(String.valueOf(o.getTotalCalories()));
+                    bt.setText(String.valueOf(Math.round(o.getTotalCalories())));
                 }
             }
             return v;

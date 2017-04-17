@@ -29,14 +29,14 @@ tools:context="com.example.caloriemonitor.RSSDetailsActivity">
     android:layout_alignStart="@+id/tvTitle"
     android:layout_height="300dp" />
 
-<Button
-    android:text="Check out the website!"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/btWeb"
-    android:layout_below="@+id/tvContent"
-    android:layout_alignStart="@+id/tvContent"
-    android:layout_marginTop="31dp" />
+    <Button
+        android:id="@+id/btWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvContent"
+        android:layout_below="@+id/tvContent"
+        android:layout_marginTop="31dp"
+        android:text="Read All" />
 
 <TextView
     android:text="TextView"

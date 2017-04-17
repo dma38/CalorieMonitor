@@ -47,6 +47,47 @@ public class MainActivity extends AppCompatActivity {
             btnAddItem.setVisibility(View.VISIBLE);
             btnHistory.setVisibility(View.VISIBLE);
         }
+        DateFormat dayMealIdFormat = new SimpleDateFormat("yyyy-MM-dd");
+        final String dayMealId = dayMealIdFormat.format(Calendar.getInstance().getTime());
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+
+        final float maxCalorie = sharedPreferences.getLong("plan", -1);
+
+        rootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                float totalCalories = 0;
+                for (DataSnapshot mealItemIterator : dataSnapshot.child("mealItems").getChildren()) {
+                    if(mealItemIterator.child("datetime").getValue()!= null  && mealItemIterator.child("description").getValue()!= null && mealItemIterator.child("quantity").getValue()!= null && mealItemIterator.child("calories").getValue()!= null && mealItemIterator.child("mealTypeId").getValue()!= null && mealItemIterator.child("dayMealId").getValue()!= null) {
+
+                        float calories = Float.parseFloat(mealItemIterator.child("calories").getValue().toString());
+                        int quantity = Integer.parseInt(mealItemIterator.child("quantity").getValue().toString());
+                        String dayMealIdFromFirebase = mealItemIterator.child("dayMealId").getValue().toString();
+                        if (dayMealIdFromFirebase.matches(dayMealId)) {
+
+                            totalCalories += calories * quantity;
+                        }
+                    }
+
+                }
+
+                if(sharedPreferences.getLong("plan", -1) != -1) {
+                    txtMain1.setText("Your plan is: " + String.valueOf(Math.round(maxCalorie)) + " per day. ");
+
+                    if (totalCalories <= maxCalorie) {
+                        txtMain2.setText("You can still eat " + Math.round((maxCalorie - totalCalories)) + " kcals today.");
+                    } else {
+                        txtMain2.setText("You have eaten " + Math.round((totalCalories - maxCalorie)) + " kcals more than the limit today.");
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -120,48 +161,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DateFormat dayMealIdFormat = new SimpleDateFormat("EEE, d MMM yyyy");
-        final String dayMealId = dayMealIdFormat.format(Calendar.getInstance().getTime());
 
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-
-        final float maxCalorie = sharedPreferences.getLong("plan", -1);
-
-        rootRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                float totalCalories = 0;
-                for (DataSnapshot mealItemIterator : dataSnapshot.child("mealItems").getChildren()) {
-                    if(mealItemIterator.child("datetime").getValue()!= null  && mealItemIterator.child("description").getValue()!= null && mealItemIterator.child("quantity").getValue()!= null && mealItemIterator.child("calories").getValue()!= null && mealItemIterator.child("mealTypeId").getValue()!= null && mealItemIterator.child("dayMealId").getValue()!= null) {
-
-                        float calories = Float.parseFloat(mealItemIterator.child("calories").getValue().toString());
-                        int quantity = Integer.parseInt(mealItemIterator.child("quantity").getValue().toString());
-                        String dayMealIdFromFirebase = mealItemIterator.child("dayMealId").getValue().toString();
-                        if (dayMealIdFromFirebase.matches(dayMealId)) {
-
-                            totalCalories += calories * quantity;
-                        }
-                    }
-
-                }
-
-                txtMain1.setText("Your plan is: "+ String.valueOf(Math.round(maxCalorie)) + " per day. ");
-
-                if(totalCalories <= maxCalorie)
-                {
-                    txtMain2.setText("You can still eat " + (maxCalorie-totalCalories) +" kcals today.");
-                }
-                else
-                {
-                    txtMain2.setText("You have eaten " + (totalCalories - maxCalorie) +" kcals more than the limit today.");
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
+
 }

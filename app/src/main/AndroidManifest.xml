@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.caloriemonitor">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +27,7 @@
         <activity android:name=".BMIReportActivity" />
         <activity android:name=".CalorieHelperActivity" />
         <activity android:name=".RSSDetailsActivity" />
-        <activity android:name=".RSSActivity"></activity>
+        <activity android:name=".RSSActivity" />
     </application>
 
 </manifest>

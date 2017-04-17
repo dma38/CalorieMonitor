@@ -35,19 +35,20 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="344dp"
-        android:layout_marginBottom="13dp"
-        android:layout_above="@+id/btnFoodItemAdd"
-        android:layout_alignEnd="@+id/etFoodItemNotes" />
+        android:layout_below="@+id/textView14"
+        android:layout_alignEnd="@+id/etFoodItemQuantity"
+        android:layout_marginTop="11dp" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/spinnerMealType"
-        android:layout_alignStart="@+id/textView20"
         android:text="I had it as ... &#42;"
         tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="314dp" />
+        tools:layout_editor_absoluteY="314dp"
+        android:layout_below="@+id/etFoodItemQuantity"
+        android:layout_alignStart="@+id/textView18"
+        android:layout_marginTop="43dp" />
 
     <Button
         android:id="@+id/btnCalorieHelper"
@@ -112,23 +113,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/spinnerMealType"
         android:layout_marginBottom="20dp" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView18"
-        android:layout_below="@+id/etFoodItemQuantity"
-        android:layout_marginTop="34dp"
-        android:text="Notes" />
-
-    <EditText
-        android:id="@+id/etFoodItemNotes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_alignTop="@+id/textView20"
-        android:layout_alignStart="@+id/etFoodItemQuantity" />
 
 </RelativeLayout>

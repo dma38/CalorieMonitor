@@ -52,6 +52,7 @@ public class RSSActivity extends AppCompatActivity {
     StringBuilder stringBuilderPubDate;
     StringBuilder stringBuilderDescription;
     StringBuilder stringBuilderLink;
+    TextView txtFeed;
 
     private final int STANDARD_REQUEST_CODE = 0;
 
@@ -67,7 +68,6 @@ public class RSSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rss);
-
         sharedPreferences = this.getSharedPreferences("generalPrefs", this.MODE_PRIVATE);
 
     }
@@ -95,15 +95,16 @@ public class RSSActivity extends AppCompatActivity {
         {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("feed_URL","https://rss.sciencedaily.com/health_medicine/fitness.xml");
-
+            editor.putString("feed_from","Science Daily");
             editor.commit();
+
             this.onResume();
         }
         else if(id == R.id.outside_feed)
         {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("feed_URL","https://www.outsideonline.com/rss/fitness/rss.xml");
-
+            editor.putString("feed_from","Outside Magazine: Fitness");
             editor.commit();
             this.onResume();
         }
@@ -360,47 +361,54 @@ public class RSSActivity extends AppCompatActivity {
             return null;
         }
 
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+
+            makePost();
+                postAdapter = new PostAdapter(RSSActivity.this, R.layout.list_item, post);
+
+                listView = (ListView) findViewById(R.id.nice_listview);
+                listView.setAdapter(postAdapter);
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(RSSActivity.this, RSSDetailsActivity.class);
+                        intent.putExtra("selectedItem", i);
+                        intent.putExtra("title", title.get(i + 1));
+                        intent.putExtra("pubDate", pubDate.get(i));
+                        intent.putExtra("link", link.get(i + 1));
+                        intent.putExtra("description", description.get(i + 1));
+                        startActivity(intent);
+//              Toast.makeText(MainActivity.this, "Index: " + i, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        sfeed_url = sharedPreferences.getString("feed_URL","http://www.winnipegfreepress.com/rss/?path=%2Farts-and-life%2Fentertainment%2Farts");
+        txtFeed = (TextView)findViewById(R.id.txtFeed);
+        sfeed_url = sharedPreferences.getString("feed_URL","https://rss.sciencedaily.com/health_medicine/fitness.xml");
+        txtFeed.setText(sharedPreferences.getString("feed_from","Science Daily"));
+        txtFeed.setTextColor(Color.parseColor("#000033"));
+        txtFeed.setBackgroundColor(Color.parseColor("#99CCFF"));
         AsyncTest asyncTest = new AsyncTest();
         asyncTest.execute();
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        makePost();
-        if(post.size()!= 0) {
-            postAdapter = new PostAdapter(RSSActivity.this, R.layout.list_item, post);
 
-            listView = (ListView) findViewById(R.id.nice_listview);
-            listView.setAdapter(postAdapter);
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = new Intent(RSSActivity.this, RSSDetailsActivity.class);
-                    intent.putExtra("selectedItem", i);
-                    intent.putExtra("title", title.get(i + 1));
-                    intent.putExtra("pubDate", pubDate.get(i));
-                    intent.putExtra("link", link.get(i + 1));
-                    intent.putExtra("description", description.get(i + 1));
-                    startActivity(intent);
-//              Toast.makeText(MainActivity.this, "Index: " + i, Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        else
-        {
-            this.onResume();
-        }
+
     }
+
+
+
+
+
     public void startSettingsActivity() {
      //   Intent intent = new Intent(this, SettingsActivity.class);
 

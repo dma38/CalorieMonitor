@@ -1,5 +1,6 @@
 package com.example.caloriemonitor;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +45,7 @@ public class AddItemActivity extends AppCompatActivity {
         etFoodItemQuantity = (EditText)findViewById(R.id.etFoodItemQuantity);
         btnFoodItemAdd = (Button)findViewById(R.id.btnFoodItemAdd);
         btnCalorieHelper = (Button)findViewById(R.id.btnCalorieHelper);
-        etFoodItemNotes = (EditText)findViewById(R.id.etFoodItemNotes);
+
         final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
 
 
@@ -90,11 +91,10 @@ public class AddItemActivity extends AppCompatActivity {
                     String mealItemKey = mealItemRef.push().getKey();
                     DatabaseReference currentMealItem = mealItemRef.child(mealItemKey);
                     currentMealItem.child("calories").setValue(foodItemCalories);
-                    DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String datetime = df.format(Calendar.getInstance().getTime());
                     currentMealItem.child("datetime").setValue(datetime);
-                    DateFormat dayMealIdFormat = new SimpleDateFormat("EEE, d MMM yyyy");
-                    String dayMealId = dayMealIdFormat.format(Calendar.getInstance().getTime());
+                    String dayMealId = df.format(Calendar.getInstance().getTime());
                     currentMealItem.child("dayMealId").setValue(dayMealId);
 
                     int mealTypeId = spinnerMealType.getSelectedItemPosition() + 1;
@@ -107,19 +107,8 @@ public class AddItemActivity extends AppCompatActivity {
                     //add day meals
                     rootRef.child("dayMeals").child(dayMealId).child(mealItemKey).setValue(true);
 
-                    String foodItemNotes;
-                    if(etFoodItemNotes.getText() != null)
-                    {
-                        foodItemNotes = etFoodItemNotes.getText().toString();
 
-                    }
-                    else
-                    {
-                        foodItemNotes = "No notes";
-                    }
-                    rootRef.child("dayMeals").child(dayMealId).child("notes").setValue(foodItemNotes);
-
-                    rootRef.child("dayMeals").child(dayMealId).child("sDate").setValue(dayMealId);
+                    rootRef.child("dayMeals").child(dayMealId).child("sDate").setValue(datetime);
 
                     Toast.makeText(AddItemActivity.this, "The record is added", Toast.LENGTH_LONG).show();
 
@@ -135,8 +124,30 @@ public class AddItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AddItemActivity.this,CalorieHelperActivity.class);
+                String keyword = etFoodItemName.getText().toString();
+                i.putExtra("keyword",keyword);
                 startActivityForResult(i, REQUEST_CODE);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == Activity.RESULT_OK)
+        {
+            String name = data.getStringExtra("name");
+            String calories = data.getStringExtra("calories");
+           // Toast.makeText(AddItemActivity.this, name + ", " + calories,Toast.LENGTH_SHORT).show();
+            etFoodItemName.setText(name);
+            etFoodItemCalorie.setText(calories);
+
+        }
+        else
+        {
+            Toast.makeText(AddItemActivity.this,"Result Cancelled", Toast.LENGTH_LONG).show();
+        }
     }
 }

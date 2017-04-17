@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static java.lang.Integer.parseInt;
 
@@ -88,37 +89,42 @@ public class BMIActivity extends AppCompatActivity {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float weight;
-                int age = parseInt(etAge.getText().toString());
-                String gender = spinnerGender.getSelectedItem().toString();
-                int weight_raw = Integer.parseInt(etWeight.getText().toString());
-                if(spinnerWeight.getSelectedItemPosition() == 0)
-                {
-                    weight = weight_raw;
+                if(etAge.getText().toString().matches("") || etWeight.getText().toString().matches("")) {
+                    Toast.makeText(BMIActivity.this, "Please fill in all values.", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    weight = weight_raw * 2.20462f;
+
+                    float weight;
+                    int age = parseInt(etAge.getText().toString());
+                    String gender = spinnerGender.getSelectedItem().toString();
+                    int weight_raw = Integer.parseInt(etWeight.getText().toString());
+                    if (spinnerWeight.getSelectedItemPosition() == 0) {
+                        weight = weight_raw;
+                    } else {
+                        weight = weight_raw * 2.20462f;
+                    }
+
+                    int height;
+                    String[] height_strings = spinnerHeight.getSelectedItem().toString().split("/");
+                    String sHeight = height_strings[1].trim().substring(0, 3);
+
+                    height = Integer.parseInt(sHeight);
+                    float inchHeight = height * 0.393701f;
+                    String exercise = spinnerExercise.getSelectedItem().toString();
+
+                    //Toast.makeText(BMIActivity.this,sHeight +" "+ exercise,Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(BMIActivity.this, BMIReportActivity.class);
+                    intent.putExtra("age", age);
+                    intent.putExtra("gender", gender);
+                    intent.putExtra("weight", weight);
+                    intent.putExtra("height", inchHeight);
+                    intent.putExtra("exercise_level", exercise);
+
+                    startActivity(intent);
                 }
 
-                int height;
-                String[] height_strings = spinnerHeight.getSelectedItem().toString().split("/");
-                String sHeight = height_strings[1].trim().substring(0,3);
-
-                height = Integer.parseInt(sHeight);
-                float inchHeight = height * 0.393701f;
-                String exercise = spinnerExercise.getSelectedItem().toString();
-
-                //Toast.makeText(BMIActivity.this,sHeight +" "+ exercise,Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(BMIActivity.this, BMIReportActivity.class);
-                intent.putExtra("age",age);
-                intent.putExtra("gender", gender);
-                intent.putExtra("weight", weight);
-                intent.putExtra("height", inchHeight);
-                intent.putExtra("exercise_level", exercise);
-
-                startActivity(intent);
             }
         });
     }
