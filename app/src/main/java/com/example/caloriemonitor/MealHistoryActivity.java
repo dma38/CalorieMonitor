@@ -79,8 +79,8 @@ public class MealHistoryActivity extends AppCompatActivity {
 
 
                     }
-                    if(daymeal.child("sDate").getValue()!=null && daymeal.child("notes") !=null) {
-                        dayMealArrayList.add(new DayMeal(daymeal.child("sDate").getValue().toString(), daymeal.child("notes").getValue().toString(), totalCalories));
+                    if(daymeal.child("sDate").getValue()!=null) {
+                        dayMealArrayList.add(new DayMeal(daymeal.child("sDate").getValue().toString(), totalCalories));
                         dayMealIdString.add(daymeal.getKey());
                     }
 
@@ -113,18 +113,13 @@ public class MealHistoryActivity extends AppCompatActivity {
 
     public class DayMeal {
         private String sDate;
-        private String notes;
         private float totalCalories;
 
-        public DayMeal(String sDate, String notes, float totalCalories) {
+        public DayMeal(String sDate, float totalCalories) {
             this.sDate = sDate;
-            this.notes = notes;
             this.totalCalories = totalCalories;
         }
 
-        public String getNotes() {
-            return notes;
-        }
 
         public String getsDate() {
             return sDate;
